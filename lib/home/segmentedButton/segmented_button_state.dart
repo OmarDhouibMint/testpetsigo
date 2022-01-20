@@ -1,7 +1,7 @@
-part of 'contacts_bloc.dart';
+part of 'segmented_button_bloc.dart';
 
-class ContactsState extends Equatable {
-  const ContactsState({
+class SegmentedButtonState extends Equatable {
+  const SegmentedButtonState({
     this.isLoading = true,
     this.isFailed = false,
     this.success = FormzStatus.pure,
@@ -11,20 +11,16 @@ class ContactsState extends Equatable {
   final bool isFailed;
   final FormzStatus success;
   final int index;
-  ContactsState copyWith({
-    bool? isLoading,
-    bool? isFailed,
-    FormzStatus? success,
-    int? index
+  SegmentedButtonState copyWith({
+    bool? isLoading, bool? isFailed, FormzStatus? success, int? index
   }) {
-    return ContactsState(
+    return SegmentedButtonState(
         isLoading: isLoading ?? this.isLoading,
         isFailed: isFailed ?? this.isFailed,
         success: success ?? this.success,
-        index: index ?? this.index
-    );
+        index: index ?? this.index);
   }
+
   @override
   List<Object> get props => [isLoading, isFailed, success, index];
-
 }
