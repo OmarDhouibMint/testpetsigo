@@ -18,10 +18,12 @@ class SegmentedButtonBloc extends Bloc<SegmentedButtonEvent, SegmentedButtonStat
     if (state.index == 0) {
       emit(const SegmentedButtonState(isLoading:true));
       emit(const SegmentedButtonState(index: 0));
+      print("loula"+state.index.toString());
     }
     else if (state.index == 1){
       emit(const SegmentedButtonState(isLoading:true));
       emit(const SegmentedButtonState(index: 1));
+      print("theniya"+state.index.toString());
     }
     emit(const SegmentedButtonState(isFailed:true));
   }
