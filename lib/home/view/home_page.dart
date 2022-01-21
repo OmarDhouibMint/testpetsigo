@@ -33,10 +33,10 @@ class _HomePageState extends State<HomePage>
     super.dispose();
     _tabController.dispose();
   }
-
+  int Index = 0;
   @override
   Widget build(BuildContext context) {
-    int Index = 0;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
       body: MultiBlocProvider(
@@ -65,6 +65,7 @@ class _HomePageState extends State<HomePage>
                         setState(() {
                           Index = index;
                         });
+                        print(Index.toString());
                         context.read<SegmentedButtonBloc>().add(loadindex(Index));
                       },
                       controller: _tabController,
@@ -100,25 +101,17 @@ class _HomePageState extends State<HomePage>
                   ),
                   // tab bar view here
                   Expanded(
-                    child: TabBarView(
-                      controller: _tabController,
+                    child: Column(
                       children: [
                         BlocBuilder<SegmentedButtonBloc, SegmentedButtonState>(
                           builder: (context, state) {
                             if (state.index == 0) {
+                              print(state.index.toString());
                               return const Text("Loading contacts...");
                             }
-                            return Text("nothing");
+                            else return const Text("Loading chatbots...");
                           },
                         ),
-                        BlocBuilder<SegmentedButtonBloc, SegmentedButtonState>(
-                          builder: (context, state) {
-
-                            return const Text("Loading chatbots...");
-
-                          },
-                        ),
-                        // second tab bar view widget
                       ],
                     ),
                   ),
